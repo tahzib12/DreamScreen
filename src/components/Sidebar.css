@@ -1,0 +1,123 @@
+.sidebar {
+  width: 200px;
+  background-color: #222;
+  color: #fff;
+  padding: 1rem;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.card {
+  width: 100%;
+  max-width: 290px;
+  height: 70px;
+  background: #353535;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  backdrop-filter: blur(10px);
+  transition: 0.5s ease-in-out;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.img1 {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background: linear-gradient(#d7cfcf, #9198e5);
+}
+
+.card:hover > .img1 {
+  transition: 0.5s ease-in-out;
+  background: linear-gradient(#9198e5, #712020);
+}
+
+.textBox {
+  width: calc(100% - 90px);
+  margin-left: 10px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.textContent {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.span {
+  font-size: 10px;
+  margin-bottom: 0px;
+}
+
+.h1 {
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  white-space: nowrap;
+  width: 87px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.p {
+  font-size: 10px;
+  font-weight: lighter;
+  margin-top: 0px;
+}
+
+.genres-list{
+  width: 80px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  backdrop-filter: blur(10px);
+  transition: 0.5s ease-in-out;
+  padding: 5px;
+  border-radius: 10px;
+  border: 2px solid #8707ff;
+  background: transparent;
+  text-align: center;
+  font-size: 15px;
+  
+}
+.years-list{
+  width: 80px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  backdrop-filter: blur(10px);
+  transition: 0.5s ease-in-out;
+  padding: 5px;
+  border-radius: 10px;
+  border: 2px solid #8707ff;
+  background: transparent;
+  text-align: center;
+}
+.genres-list:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+  background: #353535;
+  border-radius: 10px;
+}
+.years-list:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+  background: #353535;
+  border-radius: 10px;
+}

@@ -1,0 +1,14 @@
+.movie-list {
+  flex: 1;
+  padding: 1rem;
+}
+
+.movie-list h2 {
+  margin-bottom: 1rem;
+}
+
+.movie-list .movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

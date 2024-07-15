@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Header from './components/Header';
+import MovieList from './components/MovieList';
+import Sidebar from './components/Sidebar';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
+  const [selectedYear, setSelectedYear] = useState(null);
+  const [selectedGenre, setSelectedGenre] = useState(null);
+
+  const handleYearClick = (year) => {
+    setSelectedYear(year);
+    setSelectedGenre(null); // Reset selected genre when year is clicked
+  };
+
+  const handleGenreClick = (genre) => {
+    setSelectedGenre(genre);
+    setSelectedYear(null); // Reset selected year when genre is clicked
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div className="content">
+        <Sidebar handleYearClick={handleYearClick} handleGenreClick={handleGenreClick} />
+        <MovieList selectedYear={selectedYear} selectedGenre={selectedGenre} />
+      </div>
+      <Footer />
     </div>
   );
 }
