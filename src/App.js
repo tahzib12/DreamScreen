@@ -25,7 +25,7 @@ function App() {
     <div className="App">
     <video autoPlay muted loop className="video-background" id="myVideo">
         <source src={myVideo} type="video/mp4" />
-        Your browser does not support the video tag hh.
+        Your browser does not support the video tag.
       </video>
       <Header  />
       <div className="content">
