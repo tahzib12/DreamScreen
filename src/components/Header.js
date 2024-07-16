@@ -22,7 +22,7 @@ function Header() {
   };
 
   return (
-    <header className="header">
+    <header className="header sticky-header">
       <h1 className='cookie-regular'>DreamScreen</h1>
       <div className="search">
         <input 

@@ -41,7 +41,7 @@ function Sidebar({ handleYearClick, handleGenreClick }) {
   return (
     <aside className="sidebar">
       <div className="genres">
-        <h3>Genres :</h3>
+        <h3 className='ga-maamli-regular'>Genres :</h3>
         <div style={{ display: "flex" }}>
           <div style={{ flex: "1" }}>
             <div className='genres-list' onClick={() => handleGenreClick("Action")}>Action</div>
@@ -69,7 +69,7 @@ function Sidebar({ handleYearClick, handleGenreClick }) {
         </div>
       </div>
       <div className="release-years">
-        <h3 style={{ paddingTop: "10px" }}>Release Years :</h3>
+        <h3 className='ga-maamli-regular' style={{ paddingTop: "10px" }}>Release Years :</h3>
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           {[2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005].map(year => (
             <div key={year} className='years-list' onClick={() => handleYearClick(year)}>{year}
@@ -78,7 +78,7 @@ function Sidebar({ handleYearClick, handleGenreClick }) {
         </div>
       </div>
       <div className="popular-movies">
-        <h3>Popular Movies :</h3>
+        <h3 className='ga-maamli-regular' style={{marginTop:"15px",marginBottom:"0px"}}>Popular Movies :</h3>
         <ul style={{ overflowX: "hidden", overflowY: "auto", height: "107rem", padding: "10px 10px" }}>
           {movies.map((movie) => (
             <a key={movie.id} href={`https://www.themoviedb.org/movie/${movie.id}`} target="_blank" rel="noopener noreferrer">

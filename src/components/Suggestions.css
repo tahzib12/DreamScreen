@@ -5,12 +5,18 @@
     margin: 0;
     position: absolute;
     width: 312px;
-    background: black;
     z-index: 1000;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 300px;
+    height: auto;
     border-radius: 10px;
+    max-height: 310px;
+    background: rgba(246, 239, 239, 0.09);
+    border-radius: 10px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(246, 239, 239, 0.08);
   }
   
 
@@ -63,14 +69,11 @@
     margin-bottom: 0px;
   }
   
-  .h1 {
+  .h3 {
     font-size: 11px;
     font-weight: bold;
     margin-bottom: 0px;
-    white-space: nowrap;
-    width: 87px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    width: 210px;
   }
   
   .p {

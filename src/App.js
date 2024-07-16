@@ -21,7 +21,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+    <video autoPlay muted loop className="video-background" id="myVideo">
+        <source src="https://cdn.pixabay.com/video/2019/08/28/26344-357839084_large.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <Header  />
       <div className="content">
         <Sidebar handleYearClick={handleYearClick} handleGenreClick={handleGenreClick} />
         <MovieList selectedYear={selectedYear} selectedGenre={selectedGenre} />

@@ -12,13 +12,18 @@
 }
 
 .header {
-  background-color: #333;
   color: #fff;
-  padding: 12px ;
+  padding: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  background: rgba(246, 239, 239, 0.09);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(246, 239, 239, 0.08);
+  margin: 10px 10px 0px 10px;
 }
 
 .header h1 {
@@ -46,7 +51,7 @@
 
 
 
-.inputBar{
+.inputBar {
   width: 280px;
   color: white;
   border: 2px solid #8707ff;
@@ -54,7 +59,9 @@
   padding: 10px 25px;
   background: transparent;
   max-width: 280px;
+  margin-right: 10px;
 }
+
 .inputBar:active {
   box-shadow: 2px 2px 15px #8707ff inset;
 }
@@ -71,7 +78,7 @@
   transition: 0.5s;
   animation: gradient_301 5s ease infinite;
   border: double 4px transparent;
-  background-image: linear-gradient(#212121, #212121),  linear-gradient(137.48deg, #ffdb3b 10%,#FE53BB 45%, #8F51EA 67%, #0044ff 87%);
+  background-image: linear-gradient(#212121, #212121), linear-gradient(137.48deg, #ffdb3b 10%, #FE53BB 45%, #8F51EA 67%, #0044ff 87%);
   background-origin: border-box;
   background-clip: content-box, border-box;
 }
@@ -226,7 +233,8 @@ strong {
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
 }
-.nav-cat{
+
+.nav-cat {
   backdrop-filter: blur(10px);
   transition: 0.5s ease-in-out;
   padding: 5px 10px;
@@ -236,7 +244,8 @@ strong {
   backdrop-filter: blur(10px);
   transition: 0.5s ease-in-out;
 }
-.nav-cat:hover{
+
+.nav-cat:hover {
   cursor: pointer;
   transform: scale(1.05);
   border-radius: 10px;
@@ -250,7 +259,7 @@ strong {
   position: absolute;
   background-color: black;
   min-width: 130px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 200;
   border-radius: 10px;
   left: -1px;
@@ -262,7 +271,7 @@ strong {
   text-decoration: none;
   display: block;
   font-size: 15px;
-  font-weight:normal
+  font-weight: normal
 }
 
 .dropdown-content a:hover {
@@ -279,3 +288,14 @@ strong {
   background-color: #3e8e41;
 } */
 
+.sticky-header {
+  position: -webkit-sticky;
+  /* For Safari */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* Ensure the header stays on top */
+  width: auto;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

@@ -157,14 +157,14 @@ function MovieList({ selectedYear, selectedGenre }) {
 
   return (
     <div className="movie-list">
-      <h2>{selectedYear ? `${selectedYear} Movies` : selectedGenre ? `${selectedGenre} Movies` : 'Featured Movies'} :-</h2>
+      <h2 className='ga-maamli-regular'>{selectedYear ? `${selectedYear} Movies` : selectedGenre ? `${selectedGenre} Movies` : 'Featured Movies'} :-</h2>
       <hr style={{ borderTop: "1px solid yellow",marginLeft: "0px", marginTop: "-10px", marginBottom: "35px" }} />
       <div className="movies">
         {featuredMovies.map(movie => (
           <MovieCard key={movie.id} movie={movie} playLink={`https://play.movie.com/${movie.id}`} />
         ))}
       </div>
-      <h2 style={{marginTop: "4rem"}}>Latest Movies :-</h2> 
+      <h2 style={{marginTop: "4rem"}} className='ga-maamli-regular'>Latest Movies :-</h2> 
       <hr style={{ borderTop: "1px solid yellow", marginLeft: "0px", marginTop: "-10px", marginBottom: "35px" }} />
       <div className="movies">
         {latestMovies.map(movie => (

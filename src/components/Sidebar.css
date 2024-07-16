@@ -1,8 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&family=Lobster&display=swap');
+.ga-maamli-regular {
+  font-family: "Lobster", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
 .sidebar {
+  margin: 10px;
   width: 200px;
-  background-color: #222;
   color: #fff;
   padding: 1rem;
+  background: rgba(246, 239, 239, 0.09);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(246, 239, 239, 0.08);
 }
 
 .sidebar h3 {
