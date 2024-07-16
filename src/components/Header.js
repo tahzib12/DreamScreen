@@ -23,7 +23,7 @@ function Header() {
 
   return (
     <header className="header sticky-header">
-      <h1 className='cookie-regular'>DreamScreen</h1>
+      <h1 className='cookie-regular'>Tahzib's Screen</h1>
       <div className="search">
         <input 
           type="text" 
