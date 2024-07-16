@@ -4,6 +4,8 @@ import MovieList from './components/MovieList';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import './App.css';
+import myVideo from './background_animation.mp4';
+
 
 function App() {
   const [selectedYear, setSelectedYear] = useState(null);
@@ -22,7 +24,7 @@ function App() {
   return (
     <div className="App">
     <video autoPlay muted loop className="video-background" id="myVideo">
-        <source src="https://cdn.pixabay.com/video/2019/08/28/26344-357839084_large.mp4" type="video/mp4" />
+        <source src={myVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <Header  />
