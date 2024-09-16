@@ -35,7 +35,7 @@ function Sidebar({ handleYearClick, handleGenreClick }) {
         console.error('Error loading movies:', error);
       }
       finally {
-        setLoading(true); // Set loading to false after fetching
+        setLoading(false); // Set loading to false after fetching
       }
     };
 

@@ -34,7 +34,7 @@ function MovieList({ selectedYear, selectedGenre }) {
         setFeaturedMovies([]);
       }
       finally {
-        setLoadingFeatured(true);  // Set loading to false when done
+        setLoadingFeatured(false);  // Set loading to false when done
       }
     };
 
@@ -55,7 +55,7 @@ function MovieList({ selectedYear, selectedGenre }) {
         setLatestMovies([]);
       }
       finally {
-        setLoadingLatest(true);  // Set loading to false when done
+        setLoadingLatest(false);  // Set loading to false when done
       }
     };
 
