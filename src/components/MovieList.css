@@ -24,7 +24,7 @@
 .movies-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);  /* Five columns */
-  gap: 8px;  /* Space between items */
+  gap: 15px;  /* Space between items */
   /* Optional: Adjust grid gap and other styles as needed */
 }
 

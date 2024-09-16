@@ -8,5 +8,5 @@
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(246, 239, 239, 0.08);
-  margin: 0px 10px 10px 10px;
+  margin: 20px 10px 10px 10px;
 }
