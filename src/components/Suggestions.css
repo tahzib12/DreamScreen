@@ -64,19 +64,19 @@
     justify-content: space-between;
   }
   
-  .span {
+  .customSpan {
     font-size: 10px;
     margin-bottom: 0px;
   }
   
-  .h3 {
+  .customH3 {
     font-size: 11px;
     font-weight: bold;
     margin-bottom: 0px;
     width: 210px;
   }
   
-  .p {
+  .customP {
     font-size: 10px;
     font-weight: lighter;
     margin-top: 0px;
@@ -103,3 +103,4 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #b171ec;
   }
+  

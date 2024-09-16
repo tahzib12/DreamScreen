@@ -2,10 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import MovieCard from './MovieCard';
 import './MovieList.css';
+import SkeletonCard from './Skeleton';
 
 function MovieList({ selectedYear, selectedGenre }) {
   const [featuredMovies, setFeaturedMovies] = useState([]);
   const [latestMovies, setLatestMovies] = useState([]);
+  const [loadingFeatured, setLoadingFeatured] = useState(true); // Loading state for featured movies
+  const [loadingLatest, setLoadingLatest] = useState(true);    // Loading state for latest movies
+
 
   const fetchMovies = async (url) => {
     try {
@@ -29,6 +33,9 @@ function MovieList({ selectedYear, selectedGenre }) {
         console.error('Error loading featured movies:', error);
         setFeaturedMovies([]);
       }
+      finally {
+        setLoadingFeatured(true);  // Set loading to false when done
+      }
     };
 
     // Load featured movies initially and only on component mount
@@ -46,6 +53,9 @@ function MovieList({ selectedYear, selectedGenre }) {
       } catch (error) {
         console.error('Error loading latest movies:', error);
         setLatestMovies([]);
+      }
+      finally {
+        setLoadingLatest(true);  // Set loading to false when done
       }
     };
 
@@ -155,22 +165,29 @@ function MovieList({ selectedYear, selectedGenre }) {
     }
   }, [selectedYear, selectedGenre]);
 
+  const renderSkeletonCards = () => {
+    const numberOfSkeletons = 20;  // Five cards per row, four rows
+    return Array.from({ length: numberOfSkeletons }).map((_, index) => (
+      <SkeletonCard key={index} />
+    ));
+  };
+
   return (
     <div className="movie-list">
       <h2 className='ga-maamli-regular'>{selectedYear ? `${selectedYear} Movies` : selectedGenre ? `${selectedGenre} Movies` : 'Featured Movies'} :-</h2>
       <hr style={{ borderTop: "1px solid yellow",marginLeft: "0px", marginTop: "-10px", marginBottom: "35px" }} />
-      <div className="movies">
-        {featuredMovies.map(movie => (
-          <MovieCard key={movie.id} movie={movie} playLink={`https://play.movie.com/${movie.id}`} />
-        ))}
-      </div>
+      <div className="movies-grid">
+  {loadingFeatured ? renderSkeletonCards() : featuredMovies.map(movie => (
+    <MovieCard key={movie.id} movie={movie} playLink={`https://play.movie.com/${movie.id}`} />
+  ))}
+</div>
       <h2 style={{marginTop: "4rem"}} className='ga-maamli-regular'>Latest Movies :-</h2> 
       <hr style={{ borderTop: "1px solid yellow", marginLeft: "0px", marginTop: "-10px", marginBottom: "35px" }} />
-      <div className="movies">
-        {latestMovies.map(movie => (
-          <MovieCard key={movie.id} movie={movie} playLink={`https://play.movie.com/${movie.id}`} />
-        ))}
-      </div> 
+      <div className="movies-grid">
+  {loadingLatest ? renderSkeletonCards() : latestMovies.map(movie => (
+    <MovieCard key={movie.id} movie={movie} playLink={`https://play.movie.com/${movie.id}`} />
+  ))}
+</div>
     </div>
   );
 }

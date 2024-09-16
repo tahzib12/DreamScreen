@@ -134,3 +134,68 @@
   background: #353535;
   border-radius: 10px;
 }
+
+/* Skeleton Loader Styles */
+.card.skeleton {
+  background: #353535;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 60px;
+  width: 100%;
+  max-width: 150px;
+  padding: 10px;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  position: relative;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #d7d7d7 25%, #e0e0e0 50%, #d7d7d7 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.skeleton-textBox {
+  width: calc(100% - 70px); /* Adjusted for img width and margin */
+  margin-left: 10px;
+}
+
+.skeleton-textContent {
+  background: #d7d7d7;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.skeleton-title {
+  width: 87px;
+  height: 8px;
+}
+
+.skeleton-release-date {
+  width: 60px;
+  height: 8px;
+}
+
+.skeleton-rating {
+  width: 80px;
+  height: 8px;
+}
+
+/* Keyframes for Loading Animation */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

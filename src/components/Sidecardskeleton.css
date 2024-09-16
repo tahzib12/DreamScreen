@@ -1,0 +1,60 @@
+.card.skeleton {
+    background: #353535;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 70px;
+    width: 100%;
+    max-width: 290px;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .skeleton-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #d7d7d7 25%, #e0e0e0 50%, #d7d7d7 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+  
+  .skeleton-textBox {
+    width: calc(100% - 70px); /* Adjusted for img width and margin */
+    margin-left: 10px;
+  }
+  
+  .skeleton-textContent {
+    background: #d7d7d7;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .skeleton-title {
+    width: 87px;
+    height: 16px;
+  }
+  
+  .skeleton-release-date {
+    width: 60px;
+    height: 12px;
+  }
+  
+  .skeleton-rating {
+    width: 80px;
+    height: 12px;
+  }
+  
+  /* Keyframes for Loading Animation */
+  @keyframes loading {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 0%;
+    }
+  }
+  

@@ -20,3 +20,15 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);  /* Five columns */
+  gap: 8px;  /* Space between items */
+  /* Optional: Adjust grid gap and other styles as needed */
+}
+
+.movies-grid > * {
+  /* Ensure that items fit nicely in the grid */
+  box-sizing: border-box;
+}

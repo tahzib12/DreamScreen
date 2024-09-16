@@ -4,6 +4,7 @@ import './Sidebar.css';
 
 function Sidebar({ handleYearClick, handleGenreClick }) {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
   const API_KEY = process.env.REACT_APP_MOVIE_API_KEY;
 
   useEffect(() => {
@@ -32,6 +33,9 @@ function Sidebar({ handleYearClick, handleGenreClick }) {
         setMovies(allMovies);
       } catch (error) {
         console.error('Error loading movies:', error);
+      }
+      finally {
+        setLoading(true); // Set loading to false after fetching
       }
     };
 
@@ -78,26 +82,40 @@ function Sidebar({ handleYearClick, handleGenreClick }) {
         </div>
       </div>
       <div className="popular-movies">
-        <h3 className='ga-maamli-regular' style={{marginTop:"15px",marginBottom:"0px"}}>Popular Movies :</h3>
-        <ul style={{ overflowX: "hidden", overflowY: "auto", height: "107rem", padding: "10px 10px" }}>
-          {movies.map((movie) => (
-            <a key={movie.id} href={`https://www.themoviedb.org/movie/${movie.id}`} target="_blank" rel="noopener noreferrer">
-            <li key={movie.id}>
-              <div className="card">
-                <img
-                  src={movie.poster_path ? `https://image.tmdb.org/t/p/w200${movie.poster_path}` : 'placeholder-image-url'}
-                  alt={movie.title}
-                  className="img1"
-                />
-                <div className="textBox">
-                  <p className="textContent h1">{movie.title}</p>
-                  <span className="span">{movie.release_date}</span>
-                  <p className="p">Rating: {movie.vote_average}</p>
+        <h3 className='ga-maamli-regular' style={{ marginTop: "15px", marginBottom: "0px" }}>Popular Movies :</h3>
+        <ul style={{ overflowX: "hidden", overflowY: "auto", height: "102rem", padding: "10px 10px" }}>
+          {loading ? (Array.from({ length: 40 }).map((_, index) => (
+              <li key={index}>
+                <div className="card skeleton">
+                  <div className="skeleton-img"></div>
+                  <div className="skeleton-textBox">
+                    <div className="skeleton-textContent skeleton-title"></div>
+                    <div className="skeleton-textContent skeleton-release-date"></div>
+                    <div className="skeleton-textContent skeleton-rating"></div>
+                  </div>
                 </div>
-              </div>
-            </li>
-            </a>
-          ))}
+              </li>
+            ))
+           ) : (
+            movies.map((movie) => (
+              <a key={movie.id} href={`https://www.themoviedb.org/movie/${movie.id}`} target="_blank" rel="noopener noreferrer">
+                <li>
+                  <div className="card">
+                    <img
+                      src={movie.poster_path ? `https://image.tmdb.org/t/p/w200${movie.poster_path}` : 'placeholder-image-url'}
+                      alt={movie.title}
+                      className="img1"
+                    />
+                    <div className="textBox">
+                      <p className="textContent h1">{movie.title}</p>
+                      <span className="span">{movie.release_date}</span>
+                      <p className="p">Rating: {movie.vote_average}</p>
+                    </div>
+                  </div>
+                </li>
+              </a>
+            )) )
+          }
         </ul>
       </div>
     </aside>
