@@ -89,8 +89,12 @@
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
-  .container {
-    background-color: lightgreen;
+  .cookie-regular {
+    position: static;
+    font-size: 40px;
+    transform: translateX(0);
+    left: 0;
+    padding-left: 10px;
   }
 }
 
