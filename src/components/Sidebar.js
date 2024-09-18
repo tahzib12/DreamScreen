@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Sidebar.css';
+import { SlClose } from "react-icons/sl";
 
-function Sidebar({ handleYearClick, handleGenreClick }) {
+function Sidebar({ handleYearClick, handleGenreClick, showSidebar, toggleSidebar }) {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const API_KEY = process.env.REACT_APP_MOVIE_API_KEY;
@@ -43,10 +44,13 @@ function Sidebar({ handleYearClick, handleGenreClick }) {
   }, [API_KEY]);
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${showSidebar ? 'off-canvas' : ''}`}>
       <div className="genres">
+        <div className='closeBtn'>
         <h3 className='ga-maamli-regular'>Genres :</h3>
-        <div style={{ display: "flex" }}>
+        <div onClick={toggleSidebar} className='closed'><SlClose /></div>
+        </div>
+        <div style={{ display: "flex" }} onClick={toggleSidebar}>
           <div style={{ flex: "1" }} className='generList'>
             <div className='genres-list' onClick={() => handleGenreClick("Action")}>Action</div>
             <div className='genres-list' onClick={() => handleGenreClick("Adventure")}>Adventure</div>
@@ -74,7 +78,7 @@ function Sidebar({ handleYearClick, handleGenreClick }) {
       </div>
       <div className="release-years">
         <h3 className='ga-maamli-regular' style={{ paddingTop: "10px" }}>Release Years :</h3>
-        <div style={{ display: "flex", flexWrap: "wrap" }} className='yearList'>
+        <div style={{ display: "flex", flexWrap: "wrap" }} className='yearList' onClick={toggleSidebar}>
           {[2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005].map(year => (
             <div key={year} className='years-list' onClick={() => handleYearClick(year)}>{year}
             </div>

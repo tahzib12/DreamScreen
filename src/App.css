@@ -36,12 +36,12 @@
 
 @media (min-width: 601px) and (max-width: 900px) {
   .container {
-    background-color: lightgreen;
+   
   }
 }
 
 @media (min-width: 901px) {
   .container {
-    background-color: lightcoral;
+    
   }
 }

@@ -209,6 +209,10 @@
   }
   .sidebar {
     width: auto;
+    display: none;
+    transform: translateX(-100%); /* Hide sidebar initially */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
   }
   .genres-list{
     width: 50px;
@@ -233,16 +237,41 @@
  .ga-maamli-regular{
   font-size: 14px;
  }
+ .closeBtn{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+}
+.sidebar.off-canvas {
+  display: block; /* Show the sidebar */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 60 !important;
+  height: auto;
+  z-index: 100;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transform: translateX(0); /* Slide sidebar into view */
+  opacity: 1;
+}
+.closed {
+  font-size: 20px;
+}
+
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
-  .container {
-    background-color: lightgreen;
+  .closed{
+    display: none;
+  }
+  .popularMOvieList {
+    height: 160rem !important;
   }
 }
 
 @media (min-width: 901px) {
-  .container {
-    background-color: lightcoral;
+  .closed{
+    display: none;
   }
 }

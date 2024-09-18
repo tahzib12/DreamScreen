@@ -3,8 +3,9 @@ import axios from 'axios';
 import MovieCard from './MovieCard';
 import './MovieList.css';
 import SkeletonCard from './Skeleton';
+import { TfiMenuAlt } from "react-icons/tfi";
 
-function MovieList({ selectedYear, selectedGenre }) {
+function MovieList({ selectedYear, selectedGenre,  toggleSidebar }) {
   const [featuredMovies, setFeaturedMovies] = useState([]);
   const [latestMovies, setLatestMovies] = useState([]);
   const [loadingFeatured, setLoadingFeatured] = useState(true); // Loading state for featured movies
@@ -156,7 +157,7 @@ function MovieList({ selectedYear, selectedGenre }) {
           genreId = null;
           break;
       }
-      
+
       if (genreId) {
         loadMoviesByGenre(genreId);
       } else {
@@ -174,20 +175,23 @@ function MovieList({ selectedYear, selectedGenre }) {
 
   return (
     <div className="movie-list">
+      <div className='offCanvas'>
       <h2 className='ga-maamli-regular'>{selectedYear ? `${selectedYear} Movies` : selectedGenre ? `${selectedGenre} Movies` : 'Featured Movies'} :-</h2>
-      <hr style={{ borderTop: "1px solid yellow",marginLeft: "0px", marginTop: "-10px", marginBottom: "35px" }} />
-      <div className="movies-grid">
-  {loadingFeatured ? renderSkeletonCards() : featuredMovies.map(movie => (
-    <MovieCard key={movie.id} movie={movie} playLink={`https://play.movie.com/${movie.id}`} />
-  ))}
-</div>
-      <h2 style={{marginTop: "4rem"}} className='ga-maamli-regular'>Latest Movies :-</h2> 
+      <div className='btnOpen' onClick={toggleSidebar}><TfiMenuAlt /></div>
+      </div>
       <hr style={{ borderTop: "1px solid yellow", marginLeft: "0px", marginTop: "-10px", marginBottom: "35px" }} />
       <div className="movies-grid">
-  {loadingLatest ? renderSkeletonCards() : latestMovies.map(movie => (
-    <MovieCard key={movie.id} movie={movie} playLink={`https://play.movie.com/${movie.id}`} />
-  ))}
-</div>
+        {loadingFeatured ? renderSkeletonCards() : featuredMovies.map(movie => (
+          <MovieCard key={movie.id} movie={movie} playLink={`https://play.movie.com/${movie.id}`} />
+        ))}
+      </div>
+      <h2 style={{ marginTop: "4rem" }} className='ga-maamli-regular'>Latest Movies :-</h2>
+      <hr style={{ borderTop: "1px solid yellow", marginLeft: "0px", marginTop: "-10px", marginBottom: "35px" }} />
+      <div className="movies-grid">
+        {loadingLatest ? renderSkeletonCards() : latestMovies.map(movie => (
+          <MovieCard key={movie.id} movie={movie} playLink={`https://play.movie.com/${movie.id}`} />
+        ))}
+      </div>
     </div>
   );
 }

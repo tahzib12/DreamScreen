@@ -43,22 +43,38 @@
     margin-right: auto;
     margin-left: auto;
   }
-  .inputBar {
-    width: 80px;
-    height: 10px;
-  }
-
+ 
+.offCanvas{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.btnOpen{
+  font-size: 22px;
+  color: white;
+  background-color: transparent;
+}
 
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
-  .container {
-    background-color: lightgreen;
+  .btnOpen{
+    display: none;
+  }
+  .movies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    place-items: center;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
 @media (min-width: 901px) {
-  .container {
-    background-color: lightcoral;
+  .btnOpen{
+    display: none;
   }
 }
