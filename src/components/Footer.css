@@ -10,3 +10,21 @@
   border: 1px solid rgba(246, 239, 239, 0.08);
   margin: 20px 10px 10px 10px;
 }
+
+@media (max-width: 600px) {
+  .footer {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .container {
+    background-color: lightgreen;
+  }
+}
+
+@media (min-width: 901px) {
+  .container {
+    background-color: lightcoral;
+  }
+}

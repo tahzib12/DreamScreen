@@ -20,3 +20,28 @@
   object-fit: cover;
   z-index: -1; /* Send video behind the content */
 }
+
+@media (max-width: 600px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  .inputBar {
+    width: 80px;
+    height: 10px;
+  }
+
+
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .container {
+    background-color: lightgreen;
+  }
+}
+
+@media (min-width: 901px) {
+  .container {
+    background-color: lightcoral;
+  }
+}

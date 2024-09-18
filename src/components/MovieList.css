@@ -32,3 +32,33 @@
   /* Ensure that items fit nicely in the grid */
   box-sizing: border-box;
 }
+
+@media (max-width: 600px) {
+  .movies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    place-items: center;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .inputBar {
+    width: 80px;
+    height: 10px;
+  }
+
+
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .container {
+    background-color: lightgreen;
+  }
+}
+
+@media (min-width: 901px) {
+  .container {
+    background-color: lightcoral;
+  }
+}

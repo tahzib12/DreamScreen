@@ -135,6 +135,8 @@
   border-radius: 10px;
 }
 
+
+
 /* Skeleton Loader Styles */
 .card.skeleton {
   background: #353535;
@@ -197,5 +199,50 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .popularMOvieList {
+   height: 150px !important;
+  }
+  .sidebar {
+    width: auto;
+  }
+  .genres-list{
+    width: 50px;
+    font-size: 10px;
+  }
+ .generList{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  height: fit-content;
+ }
+ .yearList{
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  place-items: center;
+  height: fit-content;
+ }
+ .years-list{
+  width: 30px;
+  font-size: 10px;
+ }
+ .ga-maamli-regular{
+  font-size: 14px;
+ }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .container {
+    background-color: lightgreen;
+  }
+}
+
+@media (min-width: 901px) {
+  .container {
+    background-color: lightcoral;
   }
 }

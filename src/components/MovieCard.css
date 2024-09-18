@@ -78,3 +78,40 @@
   -webkit-transform: scale(1.1); /* Safari 3-8 */
   transform: scale(1.05); 
 }
+
+@media (max-width: 600px) {
+  .movie-card {
+    width: 73px;
+    height: 120px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .movie-card img {
+    height: 80px;
+    border-radius: 10px;
+  }
+  .movie-info h3{
+    font-size: 10px;
+    display: -webkit-box;
+   -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal; /* Allows for multiple lines */
+  }
+  .movie-info p {
+    font-size: 10px 
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .container {
+    background-color: lightgreen;
+  }
+}
+
+@media (min-width: 901px) {
+  .container {
+    background-color: lightcoral;
+  }
+}
