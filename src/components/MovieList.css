@@ -71,6 +71,9 @@
     margin-right: auto;
     margin-left: auto;
   }
+  .movie-list {
+    padding: 0px 
+  }
 }
 
 @media (min-width: 901px) {

@@ -72,6 +72,12 @@
     font-weight: bold;
     margin-bottom: 0px;
     width: 210px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* Allows for multiple lines */
   }
   
   .customP {

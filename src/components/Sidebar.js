@@ -50,7 +50,7 @@ function Sidebar({ handleYearClick, handleGenreClick, showSidebar, toggleSidebar
         <h3 className='ga-maamli-regular'>Genres :</h3>
         <div onClick={toggleSidebar} className='closed'><SlClose /></div>
         </div>
-        <div style={{ display: "flex" }} onClick={toggleSidebar}>
+        <div style={{ display: "flex" }} >
           <div style={{ flex: "1" }} className='generList'>
             <div className='genres-list' onClick={() => handleGenreClick("Action")}>Action</div>
             <div className='genres-list' onClick={() => handleGenreClick("Adventure")}>Adventure</div>
