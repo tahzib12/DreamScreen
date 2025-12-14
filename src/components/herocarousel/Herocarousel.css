@@ -1,0 +1,207 @@
+/* ====== Variables (tweak-friendly) ====== */
+:root {
+  --cap-maxw: 760px;
+  --cap-pad-y: clamp(8px, 1.6vh, 16px);
+  --cap-pad-x: clamp(12px, 2vw, 24px);
+  --cap-font: clamp(0.9rem, 2.2vw, 1.05rem);
+
+  --ind-gap: clamp(6px, 1.2vw, 10px);
+  --ind-size: clamp(6px, 1.2vw, 10px);
+
+  --ui-z: 10;      /* overlays: caption, indicators, buttons */
+  --slide-z: 0;    /* slide layer */
+}
+
+/* ====== Containers ====== */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  cursor: default;
+}
+
+/* Full-bleed hero */
+.hero-bleed {
+  width: 96vw;
+  max-width: none;
+  margin: 10px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+}
+
+/* Contained variant */
+.contained {
+  max-width: 1200px;
+  margin: 10px auto;
+  border-radius: 16px;
+}
+.contained .carousel-image {
+  border-radius: 16px;
+}
+
+/* ====== Core ====== */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: clamp(300px, 70svh, 820px);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: var(--slide-z);
+  transition: opacity 0.8s ease;
+}
+.carousel-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ====== Caption ====== */
+.carousel-caption {
+  position: absolute;
+  bottom: clamp(117px, 2vh, 32px);
+  max-width: min(32%, var(--cap-maxw));
+  padding: var(--cap-pad-y) var(--cap-pad-x);
+  color: #fff;
+  font-size: var(--cap-font);
+  line-height: 1.35;
+  border-radius: 8px;
+  z-index: var(--ui-z);
+}
+
+/* ====== Indicators ====== */
+.carousel-indicators {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(8px, 2.2vh, 14px);
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--ind-gap);
+  z-index: var(--ui-z);
+}
+
+.indicator {
+  width: var(--ind-size);
+  height: var(--ind-size);
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+}
+.indicator.active {
+  background: #fff;
+}
+
+/* ====== Buttons (under caption) ====== */
+.carousel-buttons {
+  position: relative; /* keeps above slides */
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+  z-index: var(--ui-z);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-play {
+  background: #e50914;
+  color: #fff;
+  border: none;
+}
+.btn-play:hover {
+  background: #b00610;
+}
+
+.btn-info {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+.btn-info:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* ====== Misc ====== */
+.loading-text { text-align: center; padding: 2rem 0; }
+html, body { overflow-x: hidden; }
+
+/* ====== Blur-up image placeholder ====== */
+.carousel-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-img-wrapper .blur-preview {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  filter: blur(20px);
+  transform: scale(1.1);
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.carousel-img-wrapper .main-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.carousel-img-wrapper .main-image.loaded { opacity: 1; }
+.carousel-img-wrapper .main-image.loaded + .blur-preview { opacity: 0; }
+
+/* ====== Responsive tweaks ====== */
+@media (max-width: 600px) {
+  .carousel {
+    height: clamp(260px, 40svh, 680px);
+  }
+  .carousel-caption {
+    bottom: clamp(60px, 2vh, 32px);
+    max-width: min(50%, var(--cap-maxw));
+    font-size: clamp(0.88rem, 3.8vw, 0.98rem);
+  }
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (min-width: 901px) {
+  .carousel {
+    height: clamp(360px, 72svh, 820px);
+  }
+}
+
+/* ====== Accessibility ====== */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-slide { transition: none; }
+}

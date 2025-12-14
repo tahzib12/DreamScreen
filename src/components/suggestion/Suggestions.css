@@ -99,7 +99,7 @@
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #8707ff; 
+    background: gray; 
     border-radius: 10px;
   }
   

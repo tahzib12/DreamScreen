@@ -1,0 +1,135 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap');
+
+:root{
+  --gap: 10px;                 /* left/right margin */
+  --header-maxw: 1260px;       /* optional max width; change if needed */
+  --blur: 6px;
+}
+
+/* Body top padding so fixed header overlap na kare */
+body { padding-top: 68px; }
+
+/* ---------- BRAND (Logo text) ---------- */
+.logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: #fff;
+  /* IMPORTANT: absolute hatao — flex layout me rahega */
+  position: static;
+}
+
+/* ---------- HEADER WRAPPER (keeps 10px on both sides) ---------- */
+/* Normal (non-sticky) */
+.header {
+  color: #fff;
+  padding: 12px 16px;
+  margin: var(--gap);             /* 10px left/right */
+  border-radius: 10px;
+  background: rgba(246, 239, 239, 0.09);
+  border: 1px solid rgba(246, 239, 239, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: var(--header-maxw);
+  width: auto;
+}
+
+/* Centered optional container look; remove if you want full width */
+.header { margin-left: auto; margin-right: auto; }
+
+/* Sticky state: always 10px from both sides */
+.sticky-header {
+  position: fixed;
+  top: var(--gap);
+  left: var(--gap);
+  right: var(--gap);
+  z-index: 1000;
+  width: auto;        /* calc(100% - 20px) implicitly via left/right */
+  margin: 0;          /* fixed me margin nahi chahiye */
+}
+
+/* ---------- HEADER CONTENT ---------- */
+.header h1 { margin: 0; }
+
+.header nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.header nav ul li { cursor: pointer; }
+
+.header .search {
+  margin-left: auto;         /* brand + nav ke baad right pe push */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Input */
+.inputBar {
+  width: clamp(140px, 24vw, 280px);
+  color: #fff;
+  border: 1px solid #e50914;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: transparent;
+  max-width: 280px;
+  outline: none;
+  transition: all 0.3s ease; /* smooth transitions */
+}
+
+.inputBar:focus {
+  border-color: #ff4c4c;
+  box-shadow: 0 0 8px 2px rgba(229, 9, 20, 0.6);
+  background: rgba(229, 9, 20, 0.08);
+}
+
+.inputBar:active {
+  border-color: #ff1f1f;
+  box-shadow: 0 0 12px 3px rgba(229, 9, 20, 0.8) inset;
+  background: rgba(229, 9, 20, 0.12);
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .header {
+   flex-direction: row-reverse;
+  }
+  .header nav ul {
+    gap: 0.75rem;
+  }
+  .header .search {
+    order: 3;                   /* search ko last line me bhejo */
+    width: 100%;
+    margin-left: 0;
+  }
+  .inputBar {
+    width: 100%;                /* mobile pe full width */
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-text {
+    font-size: clamp(18px, 5vw, 22px);
+    letter-spacing: 1px;
+  }
+}
+
+/* Optional: Large screens thoda taller look */
+@media (min-width: 1200px) {
+  .header { padding: 14px 18px; }
+}

@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap');
+
 .ga-maamli-regular {
-  font-family: "Lobster", sans-serif;
-  font-weight: 100;
-  font-style: normal;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: #fff;
 }
 
 .sidebar {
@@ -104,10 +108,9 @@
   transition: 0.5s ease-in-out;
   padding: 5px;
   border-radius: 10px;
-  border: 2px solid #8707ff;
   background: transparent;
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
   
 }
 .years-list{
@@ -118,9 +121,9 @@
   transition: 0.5s ease-in-out;
   padding: 5px;
   border-radius: 10px;
-  border: 2px solid #8707ff;
   background: transparent;
   text-align: center;
+   font-size: 14px;
 }
 .genres-list:hover{
   cursor: pointer;

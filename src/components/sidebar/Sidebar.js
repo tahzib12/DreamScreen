@@ -79,7 +79,7 @@ function Sidebar({ handleYearClick, handleGenreClick, showSidebar, toggleSidebar
       <div className="release-years">
         <h3 className='ga-maamli-regular' style={{ paddingTop: "10px" }}>Release Years :</h3>
         <div style={{ display: "flex", flexWrap: "wrap" }} className='yearList'>
-          {[2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005].map(year => (
+          {[2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005].map(year => (
             <div key={year} className='years-list' onClick={() => handleYearClick(year)}>{year}
             </div>
           ))}

@@ -1,8 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap');
+
+
 .ga-maamli-regular {
-  font-family: "Lobster", sans-serif;
-  font-weight: 100;
-  font-style: normal;
+ font-family: 'Montserrat', sans-serif;
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: #fff;
 }
 
 

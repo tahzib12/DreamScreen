@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Header.css';
-import Suggestions from './Suggestions';
+import Suggestions from '../suggestion/Suggestions';
 
 function Header() {
   const [query, setQuery] = useState('');
@@ -23,7 +23,7 @@ function Header() {
 
   return (
     <header className="header sticky-header">
-      <h1 className='cookie-regular'>Tahzib's Screen</h1>
+      <h1 className='logo-text'>DreamScreen</h1>
       <div className="search">
         <input 
           type="text" 

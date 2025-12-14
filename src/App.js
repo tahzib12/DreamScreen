@@ -1,10 +1,10 @@
 import React, { useState, useEffect  } from 'react';
-import Header from './components/Header';
-import MovieList from './components/MovieList';
-import Sidebar from './components/Sidebar';
-import Footer from './components/Footer';
+import Header from './components/header/Header';
+import MovieList from './components/movielist/MovieList';
+import Sidebar from './components/sidebar/Sidebar';
+import Footer from './components/footer/Footer';
 import './App.css';
-import myVideo from './background_animation.mp4';
+import HeroCarousel from './components/herocarousel/Herocarousel';
 
 
 function App() {
@@ -46,11 +46,8 @@ function App() {
 
   return (
     <div className="App">
-    <video autoPlay muted loop className="video-background" id="myVideo">
-        <source src={myVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <Header  />
+        <Header />
+       <HeroCarousel />
       <div className="content">
       {showSidebar && <Sidebar handleYearClick={handleYearClick} handleGenreClick={handleGenreClick} showSidebar={showSidebar}  toggleSidebar={toggleSidebar}/>}
         <MovieList selectedYear={selectedYear} selectedGenre={selectedGenre} toggleSidebar={toggleSidebar}/>
