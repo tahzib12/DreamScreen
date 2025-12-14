@@ -39,11 +39,10 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^7.0.3",
+    "sass": "^1.95.1",
     "sass-loader": "^14.2.1"
   },
   "engines": {
-  "node": "24.x"
-}
-
+    "node": "24.x"
+  }
 }
