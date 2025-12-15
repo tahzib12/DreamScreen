@@ -5,7 +5,6 @@ import "./Herocarousel.css";
 const HeroCarousel = () => {
   const [slides, setSlides] = useState([]);
   const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
 
   const API_KEY = process.env.REACT_APP_MOVIE_API_KEY;
   const BASE_URL = "https://api.themoviedb.org/3";
@@ -86,27 +85,29 @@ const HeroCarousel = () => {
     fetchMovies();
   }, [API_KEY]);
 
-  // Autoplay controls
+  // Autoplay (always on)
   const timerRef = useRef(null);
   useEffect(() => {
-    if (!slides.length || paused) return;
+    if (!slides.length) return;
+
     const tick = () => setCurrent((p) => (p + 1) % slides.length);
-    const start = () => {
-      if (!document.hidden && !timerRef.current) timerRef.current = setInterval(tick, autoPlayDelay);
-    };
-    const stop = () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-      timerRef.current = null;
+    timerRef.current = setInterval(tick, autoPlayDelay);
+
+    const visHandler = () => {
+      if (document.hidden && timerRef.current) {
+        clearInterval(timerRef.current);
+        timerRef.current = null;
+      } else if (!document.hidden && !timerRef.current) {
+        timerRef.current = setInterval(tick, autoPlayDelay);
+      }
     };
 
-    start();
-    const visHandler = () => (document.hidden ? stop() : start());
     document.addEventListener("visibilitychange", visHandler);
     return () => {
-      stop();
+      clearInterval(timerRef.current);
       document.removeEventListener("visibilitychange", visHandler);
     };
-  }, [slides, paused, autoPlayDelay]);
+  }, [slides, autoPlayDelay]);
 
   // Prefetch next image
   useEffect(() => {
@@ -124,10 +125,6 @@ const HeroCarousel = () => {
   return (
     <div
       className="carousel-container hero-bleed"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onTouchStart={() => setPaused(true)}
-      onTouchEnd={() => setPaused(false)}
       aria-roledescription="carousel"
     >
       <div className="carousel">
@@ -135,7 +132,7 @@ const HeroCarousel = () => {
           const isActive = index === current;
           const { src, srcSet, sizes } = buildImgSources(slide.backdrop);
 
-          // --- low-quality preview for blur ---
+          // low-quality preview for blur
           const blurSrc = tmdbImageUrl(slide.backdrop, "w300");
 
           return (
@@ -144,7 +141,6 @@ const HeroCarousel = () => {
               className={`carousel-slide ${isActive ? "active" : ""}`}
               aria-hidden={isActive ? "false" : "true"}
             >
-              {/* Wrapper for blur placeholder */}
               <div className="carousel-img-wrapper">
                 <img
                   className="carousel-image blur-preview"
@@ -167,7 +163,7 @@ const HeroCarousel = () => {
 
               <div className="carousel-caption">
                 <h3>{slide.title}</h3>
-                <p>{slide.text.length > 150 ? slide.text.slice(0, 150) + "..." : slide.text}</p>
+                <p>{slide.text.length > 250 ? slide.text.slice(0, 150) + "..." : slide.text}</p>
 
                 <div className="carousel-buttons">
                   <a

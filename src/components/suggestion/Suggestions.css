@@ -111,9 +111,8 @@
   @media (max-width: 600px) {
     .suggestions {
       width: 220px;
-      right: 0%;
-      top : 57px
-
+      top : 57px;
+      left: 0
     }
     .customH3 {
       width: 100px;

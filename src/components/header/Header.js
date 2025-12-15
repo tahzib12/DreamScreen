@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Header.css';
 import Suggestions from '../suggestion/Suggestions';
 
+
 function Header() {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
@@ -23,7 +24,10 @@ function Header() {
 
   return (
     <header className="header sticky-header">
-      <h1 className='logo-text'>DreamScreen</h1>
+      <div className="logo">
+        <img src="/dreamlogo.png" alt="DreamScreen Logo" className="logo-img" />
+        <h1 className='logo-text'>DreamScreen</h1>
+      </div>
       <div className="search">
         <input 
           type="text" 
